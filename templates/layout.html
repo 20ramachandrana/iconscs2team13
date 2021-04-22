@@ -27,7 +27,7 @@ li a {
     font-family: 'Mukta Mahee', sans-serif;
 }
     li a:hover:not(.active) {
-  background-color: #111;
+  background-color: #41afdf;
 }
 
 .active {
@@ -36,11 +36,15 @@ li a {
 .title {
   background-color: #373c87;
 }
+ h2 {
+     font-family: 'Mukta Mahee', sans-serif;
+     color: #373c87;
+}
  </style>
 </head>
 <body>
-    <div class = "title"> </div>
+    <div class = "title"><center><h1></h1></center></div>
 {%block navbar%}{%endblock%}
-    <h1>{% block title %}{% endblock %}</h1>
+    <h2>{% block title %}{% endblock %}</h2>
 </body>
 </html>
