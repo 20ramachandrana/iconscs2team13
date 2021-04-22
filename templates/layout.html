@@ -55,10 +55,20 @@ h1 {
     font-family: 'Mukta Mahee', sans-serif;
     color: yellow;
 }
+.navbar {
+    width:100%;
+}
+.navbar a {
+    float:left;
+    padding:12px;
+    width:50%;
+    text-align:center;
+}
  </style>
 </head>
 <body>
-    <div class = "title"><center><h1>Texas Power Grid Projection Calculator</h1>{%block navbar%}{%endblock%}</center>
+    <div class = "title"><center><h1>Texas Power Grid Projection Calculator</h1></center>
+        <div class="navbar">{%block navbar%}{%endblock%}</div>
     </div>
 
     <h2>{% block title %}{% endblock %}</h2>
