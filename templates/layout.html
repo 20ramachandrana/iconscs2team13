@@ -26,18 +26,17 @@ li a {
   text-decoration: none;
     font-family: 'Mukta Mahee', sans-serif;
 }
-
-li a:hover {
+    li a:hover:not(.active) {
   background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
 }
  </style>
 </head>
 <body>
-    <ul>
-  <li><a href="/">Home</a></li>  
-  <li><a href="/calculator">Calculator</a></li>
-  <li><a href="/calculator">Calculator again</a></li>      
-</ul>
+{%block navbar%}{%endblock%}
     <h1>{% block title %}{% endblock %}</h1>
 </body>
 </html>
