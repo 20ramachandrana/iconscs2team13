@@ -7,12 +7,9 @@ def home():
 @app.route('/userguide')
 def userguide():
     return render_template("userguide.html")
-@app.route('/calculator', methods=["GET", "POST"])
+@app.route('/calculator')
 def calc():
-    if request.method == "GET":
-        return redirect('/')
-    else:
-        return render_template("calc.html")
+    return render_template("calc.html")
 
 
 if __name__ == "__main__":
