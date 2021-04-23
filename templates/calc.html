@@ -30,6 +30,21 @@
   <label for="quantity">Nuclear</label>
   <input type="number" id="ninit" name="ninit" min="0" max = "100" step="any" value= "8.7">   
   <br>
+  <label>Change in Percent of Electricity Generated from Each Source Over Time (percent per year):</label>
+  <br>                                                                                        
+  <label for="quantity">Natural Gas (will be used as the "slack" value to ensure distributions add up to 100%</label>
+  <input type="number" id="nginit" name="nginit" min="-100" max = "100" step="any" value= "0">
+  <label for="quantity">Winterized Natural Gas</label>
+  <input type="number" id="winginit" name="winginit" min="-100" max = "100" step="any" value= "0">
+  <label for="quantity">Coal</label>
+  <input type="number" id="cinit" name="cinit" min="-100" max = "100" step="any" value= "-1.89">   
+  <label for="quantity">Solar</label>
+  <input type="number" id="soinit" name="soinit" min="-100" max = "100" step="any" value= "0.0976">
+  <label for="quantity">Wind</label>
+  <input type="number" id="winit" name="winit" min="-100" max = "100" step="any" value= "1.29">  
+  <label for="quantity">Nuclear</label>
+  <input type="number" id="ninit" name="ninit" min="-100" max = "100" step="any" value= "-0.116">                                                                                           
+  <br>                                                                                        
   <input type="submit" value="Submit">
 </form>
 
