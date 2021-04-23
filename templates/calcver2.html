@@ -2,9 +2,9 @@
 {% block script%}
 <script>
 function addFields(){
-    if (document.getElementById("start").value < 2021) {alert("Sorry! That's an invalid start year. Pich a year after 2020, like 2021");location.reload();}
+    if (document.getElementById("start").value < 2021) {alert("Sorry! That's an invalid start year. Pich a year after 2020, like 2021");location.reload(); return;}
     let startYear = document.getElementById("start").value; 
-    if (document.getElementById("end").value <= document.getElementById("start").value) {alert("Sorry! That's an invalid end year. Pick a year after the start year you've entered.");location.reload();}
+    if (document.getElementById("end").value <= document.getElementById("start").value) {alert("Sorry! That's an invalid end year. Pick a year after the start year you've entered.");location.reload(); return;}
     let endYear = document.getElementById("end").value;
     if(document.getElementById("fields").children.length !== 5) alert("Note that if you've entered some data already, it's going to reset to the default values.");
     
