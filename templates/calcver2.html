@@ -20,6 +20,7 @@ function addFields(){
         document.getElementById("fields").innerHTML += '<label for="quantity"> Nuclear for ' + i + '</label> <input type = "number" id ="n'+ i +'" name = "n' + i + 'min="0" max = "100" step="any" value= "8.7">';
         document.getElementById("fields").innerHTML+='<br><br>';
     }
+    document.getElementById("fields").innerHTML += ' <input type="submit" id = "sub" value="Submit">';
 }                             
 </script>
 {% endblock %}
@@ -46,4 +47,3 @@ function addFields(){
 </div>
 </form>
 {% endblock %}
-
