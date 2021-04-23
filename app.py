@@ -14,7 +14,7 @@ def calc():
     else:
         return render_template("data.html")
 @app.route('/calculatorver2', methods = ['GET', 'POST'])
-def calc():
+def calcver2():
     if request.method == 'GET':
         return render_template("calcver2.html")
     else:
