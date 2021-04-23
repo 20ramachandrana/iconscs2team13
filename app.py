@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
 @app.route('/')
@@ -9,10 +9,10 @@ def userguide():
     return render_template("userguide.html")
 @app.route('/calculator', methods = ['GET', 'POST'])
 def calc():
-    if request.method == 'POST':
+    if request.method == 'GET':
         return render_template("calc.html")
     else:
         return render_template("data.html")
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
