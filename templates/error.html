@@ -10,5 +10,7 @@
 {% block content %}
 Hi! An error occured – {{ error }}
 <br>
-<a href="/calculator">Back to the Calculator!</a>
+<form action="/calculator">
+  <input type="submit" value="Back to the Calculator!">
+</form>
 {% endblock %}
