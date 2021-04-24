@@ -167,6 +167,7 @@ def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc, percEff):
     # Saving Plot 1 - Emissions image
     energy = get_aEnergy(years)
     plt.plot(years, energy)
+    plt.xticks(np.arrange(startYear, endYear, 1))
     plt.xlabel("Years")
     plt.ylabel("Energy Production MWhr")
     plt.title("Annual Energy Production")
@@ -181,6 +182,7 @@ def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc, percEff):
     # Saving Plot 2 - CO2 Emissions image
     emissions = get_aEmissions(years, percSources, energy)
     plt.plot(years, emissions)
+    plt.xticks(np.arrange(startYear, endYear, 1))
     plt.xlabel("Years")
     plt.ylabel("CO2 Emissions (Million Metric Tons)")
     plt.title("Annual Carbon Emissions")
@@ -200,6 +202,7 @@ def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc, percEff):
     PercNuclear = percSources[:,4]
     PercWinterNG = percSources[:,5]
     plt.plot(years, PercCoal, "k", years, PercNG, "r", years, PercSolar, "y", years, PercWind, "b", years, PercNuclear, "g", years, PercWinterNG, "m")
+    plt.xticks(np.arrange(startYear, endYear, 1))
     plt.xlabel("Years")
     plt.ylabel("% Source By Energy Production")
     plt.title("Percent Distribution of Sources Over Time")
@@ -215,6 +218,7 @@ def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc, percEff):
     # Saving Plot 4 - Reliability Image
     reliability = get_aReliability(years, percSources, energy, percEff)
     plt.plot(years, reliability)
+    plt.xticks(np.arrange(startYear, endYear, 1))
     plt.xlabel("Years")
     plt.ylabel("Reliability (expected reduction in MWhr)")
     plt.title("Reliability Over Time")
@@ -229,6 +233,7 @@ def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc, percEff):
     # Saving Plot 5 - Construction Cost
     construcCost = get_aConstructionCost(years, percSources)
     plt.plot(years, construcCost)
+    plt.xticks(np.arrange(startYear, endYear, 1))
     plt.xlabel("Years")
     plt.ylabel("Cost (USD)")
     plt.title("Annual Construction Costs")
@@ -243,6 +248,7 @@ def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc, percEff):
     # Saving Plot 6 - Consumer Price
     consumCost = get_aConsumerCost(years, percSources)
     plt.plot(years, consumCost)
+    plt.xticks(np.arrange(startYear, endYear, 1))
     plt.xlabel("Years")
     plt.ylabel("Cost (cents/kWh)")
     plt.title("Annual Consumer Costs")
