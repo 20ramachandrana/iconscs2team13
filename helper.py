@@ -177,7 +177,7 @@ def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc, percEff):
     b2 = base64.b64encode(buffer)
     figDec =b2.decode('utf-8')
     plotData.append(figDec)
-
+    plt.clf()
     # Saving Plot 2 - CO2 Emissions image
     emissions = get_aEmissions(years, percSources, energy)
     plt.plot(years, emissions)
@@ -191,7 +191,7 @@ def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc, percEff):
     b2 = base64.b64encode(buffer)
     figDec =b2.decode('utf-8')
     plotData.append(figDec)
-    
+    plt.clf()
     # Saving Plot 3 - Percent Production Image
     PercCoal = percSources[:,0]
     PercNG = percSources[:,1]
@@ -211,7 +211,7 @@ def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc, percEff):
     b2 = base64.b64encode(buffer)
     figDec =b2.decode('utf-8')
     plotData.append(figDec)
-
+    plt.clf()
     # Saving Plot 4 - Reliability Image
     reliability = get_aReliability(years, percSources, energy, percEff)
     plt.plot(years, reliability)
@@ -225,7 +225,7 @@ def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc, percEff):
     b2 = base64.b64encode(buffer)
     figDec =b2.decode('utf-8')
     plotData.append(figDec)
-
+    plt.clf()
     # Saving Plot 5 - Construction Cost
     construcCost = get_aConstructionCost(years, percSources)
     plt.plot(years, construcCost)
@@ -239,7 +239,7 @@ def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc, percEff):
     b2 = base64.b64encode(buffer)
     figDec =b2.decode('utf-8')
     plotData.append(figDec)
-
+    plt.clf()
     # Saving Plot 6 - Consumer Price
     consumCost = get_aConsumerCost(years, percSources)
     plt.plot(years, consumCost)
@@ -253,6 +253,7 @@ def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc, percEff):
     b2 = base64.b64encode(buffer)
     figDec =b2.decode('utf-8')
     plotData.append(figDec)
+    plt.clf()
     
     # return array with all the plot images
     return plotData
