@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
+from io import BytesIO
+import base64
 ##########################
 #### Global Variables ####
 ##########################
@@ -150,9 +151,86 @@ def get_aEmissions(aYear, aPercentSources, aEnergy, source_emissions=source_emis
     
     return aEmissions
 
+def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc):
+    '''
+           Returns an array of 6 plots as png images to use in the website.
+           As said in the main, the 6 figures are:
+           Energy, CO2, % Production, Reliability, Construction Cost, Consumer Cost.
+    '''
+    # Array of img src data
+    plotData = []
 
+    # Used in all the plots
+    years = get_aYear(startYear, endYear)
+    percSources = get_aPercentSources(years, initialSrc ,firsDerSrc, secDerSrc)
 
+    # Saving Plot 1 - Emissions image
+    energy = get_aEnergy(Years)
+    plt.plot(years, energy)
+    plt.xlabel("Years")
+    plt.ylabel("Energy Production MWhr")
+    plt.title("Annual Energy Production")
+    fig = BytesIO()
+    plt.savefig(fig, format='png')
+    plotData.append(base64.b64encode(fig.getvalue()))
 
+    # Saving Plot 2 - CO2 Emissions image
+    emissions = get_aEmissions(years, percSources, energy)
+    plt.plot(Years, emissions)
+    plt.xlabel("Years")
+    plt.ylabel("CO2 Emissions (Million Metric Tons)")
+    plt.title("Annual Carbon Emissions")
+    fig = BytesIO()
+    plt.savefig(fig, format='png')
+    plotData.append(base64.b64encode(fig.getvalue()))
+
+    # Saving Plot 3 - Percent Production Image
+    PercCoal = PercSources[:,0]
+    PercNG = PercSources[:,1]
+    PercSolar = PercSources[:,2]
+    PercWind = PercSources[:,3]
+    PercNuclear = PercSources[:,4]
+    PercWinterNG = PercSources[:,5]
+    plt.plot(Years, PercCoal, "k", Years, PercNG, "r", Years, PercSolar, "y", Years, PercWind, "b", Years, PercNuclear, "g", Years, PercWinterNG, "m")
+    plt.xlabel("Years")
+    plt.ylabel("% Source By Energy Production")
+    plt.title("Percent Distribution of Sources Over Time")
+    plt.legend(["Coal", "NG", "Solar", "Wind", "Nuclear", "Winterized NG"])
+    fig = BytesIO()
+    plt.savefig(fig, format='png')
+    plotData.append(base64.b64encode(fig.getvalue()))
+
+    # Saving Plot 4 - Reliability Image
+    reliability = get_aReliability(years, percSources, energy)
+    plt.plot(years, reliability)
+    plt.xlabel("Years")
+    plt.ylabel("Reliability (expected reduction in MWhr)")
+    plt.title("Reliability Over Time")
+    fig = BytesIO()
+    plt.savefig(fig, format='png')
+    plotData.append(base64.b64encode(fig.getvalue()))
+
+    # Saving Plot 5 - Construction Cost
+    construcCost = get_aConstructionCost(years, percSources)
+    plt.plot(years, construcCost)
+    plt.xlabel("Years")
+    plt.ylabel("Cost (USD)")
+    plt.title("Annual Construction Costs")
+    fig = BytesIO()
+    plt.savefig(fig, format='png')
+    plotData.append(base64.b64encode(fig.getvalue()))
+
+    # Saving Plot 6 - Consumer Price
+    consumCost = get_aConsumerCost(years, percSources)
+    plt.plot(years, consumCost)
+    plt.xlabel("Years")
+    plt.ylabel("Cost (cents/kWh)")
+    plt.title("Annual Consumer Costs")
+    fig = BytesIO()
+    plt.savefig(fig, format='png')
+    plotData.append(base64.b64encode(fig.getvalue()))
+    return plotData
+    
 #### Test of Module ####
 
 if __name__ == "__main__":
