@@ -12,7 +12,7 @@ function addFields(){
     if(document.getElementById("fields").children.length !== 5) alert("Note that if you've entered some data already, it's going to reset to the default values.");
     
     // updates the fields container to add the percent distribution entry fields for each year between start and endYear, inclusive.
-    document.getElementById("fields").innerHTML = '<label for="quantity" style="color:#41afdf">Start Year (Minimum of 2021):</label><input type="number" id="start" name="start" min="2021" value = ' + startYear+ '"><label for="quantity" style="color:#41afdf">End Year (Minimum of 2022, must be a year that comes after the start year):</label><input type="number" id="end" name="end" min="2022" value = "' + endYear + '"><button onclick="addFields()">Get Fields for the Percent Distributions by Year for Each Year</button>';
+    document.getElementById("fields").innerHTML = '<label for="quantity" style="color:#41afdf">Start Year (Minimum of 2021):</label><input type="number" id="start" name="start" min="2021" value = "' + startYear+ '"><label for="quantity" style="color:#41afdf">End Year (Minimum of 2022, must be a year that comes after the start year):</label><input type="number" id="end" name="end" min="2022" value = "' + endYear + '"><button onclick="addFields()">Get Fields for the Percent Distributions by Year for Each Year</button>';
     for (let i = startYear; i <= endYear; ++i){
          document.getElementById("fields").innerHTML += '<label style="color:#41afdf">' + i + '</label><br>'
         document.getElementById("fields").innerHTML += '<label for="quantity"> Percent Natural Gas (0-100 %) for ' + i + '</label> <input type = "number" id ="ng'+ i +'" name = "ng' + i +'min="0" max = "100" step="any" value= "53.6">';
