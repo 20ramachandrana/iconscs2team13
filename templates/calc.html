@@ -10,60 +10,60 @@
 {% block content %}
 <form action="/calculator" method="post">
   <label for="quantity" style="color:#41afdf">Start Year (Minimum of 2021):</label>
-  <input type="number" id="start" name="start" min="2021" value = "2021">
+  <input type="number" id="start" name="start" min="2021" value = "2021" required>
   <br>
   <label for="quantity" style="color:#41afdf">End Year (Minimum of 2022, must be a year that comes after the start year):</label>
-  <input type="number" id="end" name="end" min="2022" value = "2022">
+  <input type="number" id="end" name="end" min="2022" value = "2022" required>
   <br>
   <label style="color:#41afdf">Initial Percent of Electricity Generated from Each Source (0-100%):</label>
  <br>
   <label for="quantity">Natural Gas</label>
-  <input type="number" id="nginit" name="nginit" min="0" max = "100" step="any" value= "53.6">
+  <input type="number" id="nginit" name="nginit" min="0" max = "100" step="any" value= "53.6" required>
   <label for="quantity">Winterized Natural Gas</label>
-  <input type="number" id="winginit" name="winginit" min="0" max = "100" step="any" value= "0">
+  <input type="number" id="winginit" name="winginit" min="0" max = "100" step="any" value= "0" required>
   <label for="quantity">Coal</label>
-  <input type="number" id="cinit" name="cinit" min="0" max = "100" step="any" value= "19.3">   
+  <input type="number" id="cinit" name="cinit" min="0" max = "100" step="any" value= "19.3" required>   
   <label for="quantity">Solar</label>
-  <input type="number" id="soinit" name="soinit" min="0" max = "100" step="any" value= "0.9">
+  <input type="number" id="soinit" name="soinit" min="0" max = "100" step="any" value= "0.9" required>
   <label for="quantity">Wind</label>
-  <input type="number" id="winit" name="winit" min="0" max = "100" step="any" value= "17.5">  
+  <input type="number" id="winit" name="winit" min="0" max = "100" step="any" value= "17.5" required>  
   <label for="quantity">Nuclear</label>
-  <input type="number" id="ninit" name="ninit" min="0" max = "100" step="any" value= "8.7">   
+  <input type="number" id="ninit" name="ninit" min="0" max = "100" step="any" value= "8.7" required>   
   <br>
   <label style="color:#41afdf">Change in Percent of Electricity Generated from Each Source Over Time (percent per year):</label>
   <br>                                                                                        
   <label for="quantity">Natural Gas (will be used as the "slack" value in our calculations to ensure distributions add up to 100%</label>
-  <input type="number" id="ngd" name="ngd" min="-100" max = "100" step="any" value= "0">
+  <input type="number" id="ngd" name="ngd" min="-100" max = "100" step="any" value= "0" required>
   <br>
   <label for="quantity">Winterized Natural Gas</label>
-  <input type="number" id="wid" name="wid" min="-100" max = "100" step="any" value= "0">
+  <input type="number" id="wid" name="wid" min="-100" max = "100" step="any" value= "0" required>
   <label for="quantity">Coal</label>
-  <input type="number" id="cd" name="cd" min="-100" max = "100" step="any" value= "-1.89">   
+  <input type="number" id="cd" name="cd" min="-100" max = "100" step="any" value= "-1.89" required>   
   <label for="quantity">Solar</label>
-  <input type="number" id="sod" name="sod" min="-100" max = "100" step="any" value= "0.0976">
+  <input type="number" id="sod" name="sod" min="-100" max = "100" step="any" value= "0.0976" required>
   <label for="quantity">Wind</label>
-  <input type="number" id="wd" name="wd" min="-100" max = "100" step="any" value= "1.29">  
+  <input type="number" id="wd" name="wd" min="-100" max = "100" step="any" value= "1.29" required>  
   <label for="quantity">Nuclear</label>
-  <input type="number" id="nd" name="nd" min="-100" max = "100" step="any" value= "-0.116">  
+  <input type="number" id="nd" name="nd" min="-100" max = "100" step="any" value= "-0.116" required>  
   <br>
   <label style="color:#41afdf">Change in the Change in Percent of Electricity Generated from Each Source Over Time (percent per year^2):</label>
   <br>                                                                                        
   <label for="quantity">Natural Gas (will be used as the "slack" value in our calculations to ensure distributions add up to 100%</label>
-  <input type="number" id="ngd2" name="ngd2" min="-100" max = "100" step="any" value= "0">
+  <input type="number" id="ngd2" name="ngd2" min="-100" max = "100" step="any" value= "0" required>
   <br>
   <label for="quantity">Winterized Natural Gas</label>
-  <input type="number" id="wid2" name="wid2" min="-100" max = "100" step="any" value= "0">
+  <input type="number" id="wid2" name="wid2" min="-100" max = "100" step="any" value= "0" required>
   <label for="quantity">Coal</label>
-  <input type="number" id="cd2" name="cd2" min="-100" max = "100" step="any" value= "0">   
+  <input type="number" id="cd2" name="cd2" min="-100" max = "100" step="any" value= "0" required>   
   <label for="quantity">Solar</label>
-  <input type="number" id="sod2" name="sod2" min="-100" max = "100" step="any" value= "0">
+  <input type="number" id="sod2" name="sod2" min="-100" max = "100" step="any" value= "0" required>
   <label for="quantity">Wind</label>
-  <input type="number" id="wd2" name="wd2" min="-100" max = "100" step="any" value= "0">  
+  <input type="number" id="wd2" name="wd2" min="-100" max = "100" step="any" value= "0" required>  
   <label for="quantity">Nuclear</label>
-  <input type="number" id="nd2" name="nd2" min="-100" max = "100" step="any" value= "0">                                                                                           
+  <input type="number" id="nd2" name="nd2" min="-100" max = "100" step="any" value= "0" required>                                                                                           
   <br>                                
   <label for="quantity"style="color:#41afdf">Percent Effectiveness of Winterized Natural Gas Pipes (0-100%)</label>
-  <input type="number" id="eff" name="eff" min="0" max = "100" step="any" value= "83.5">                                                                              
+  <input type="number" id="eff" name="eff" min="0" max = "100" step="any" value= "83.5" required>                                                                              
   <input type="submit" id = "sub" value="Submit">
 </form>
 

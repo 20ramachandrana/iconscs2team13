@@ -151,7 +151,7 @@ def get_aEmissions(aYear, aPercentSources, aEnergy, source_emissions=source_emis
     
     return aEmissions
 
-def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc):
+def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc, percEff):
     '''
            Returns an array of 6 plots as png images to use in the website.
            As said in the main, the 6 figures are:
@@ -165,50 +165,66 @@ def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc):
     percSources = get_aPercentSources(years, initialSrc ,firsDerSrc, secDerSrc)
 
     # Saving Plot 1 - Emissions image
-    energy = get_aEnergy(Years)
+    energy = get_aEnergy(years)
     plt.plot(years, energy)
     plt.xlabel("Years")
     plt.ylabel("Energy Production MWhr")
     plt.title("Annual Energy Production")
     fig = BytesIO()
     plt.savefig(fig, format='png')
-    plotData.append(base64.b64encode(fig.getvalue()))
+    fig.seek(0)
+    buffer = b''.join(fig)
+    b2 = base64.b64encode(buffer)
+    figDec =b2.decode('utf-8')
+    plotData.append(figDec)
 
     # Saving Plot 2 - CO2 Emissions image
     emissions = get_aEmissions(years, percSources, energy)
-    plt.plot(Years, emissions)
+    plt.plot(years, emissions)
     plt.xlabel("Years")
     plt.ylabel("CO2 Emissions (Million Metric Tons)")
     plt.title("Annual Carbon Emissions")
     fig = BytesIO()
     plt.savefig(fig, format='png')
-    plotData.append(base64.b64encode(fig.getvalue()))
-
+    fig.seek(0)
+    buffer = b''.join(fig)
+    b2 = base64.b64encode(buffer)
+    figDec =b2.decode('utf-8')
+    plotData.append(figDec)
+    
     # Saving Plot 3 - Percent Production Image
-    PercCoal = PercSources[:,0]
-    PercNG = PercSources[:,1]
-    PercSolar = PercSources[:,2]
-    PercWind = PercSources[:,3]
-    PercNuclear = PercSources[:,4]
-    PercWinterNG = PercSources[:,5]
-    plt.plot(Years, PercCoal, "k", Years, PercNG, "r", Years, PercSolar, "y", Years, PercWind, "b", Years, PercNuclear, "g", Years, PercWinterNG, "m")
+    PercCoal = percSources[:,0]
+    PercNG = percSources[:,1]
+    PercSolar = percSources[:,2]
+    PercWind = percSources[:,3]
+    PercNuclear = percSources[:,4]
+    PercWinterNG = percSources[:,5]
+    plt.plot(years, PercCoal, "k", years, PercNG, "r", years, PercSolar, "y", years, PercWind, "b", years, PercNuclear, "g", years, PercWinterNG, "m")
     plt.xlabel("Years")
     plt.ylabel("% Source By Energy Production")
     plt.title("Percent Distribution of Sources Over Time")
     plt.legend(["Coal", "NG", "Solar", "Wind", "Nuclear", "Winterized NG"])
     fig = BytesIO()
     plt.savefig(fig, format='png')
-    plotData.append(base64.b64encode(fig.getvalue()))
+    fig.seek(0)
+    buffer = b''.join(fig)
+    b2 = base64.b64encode(buffer)
+    figDec =b2.decode('utf-8')
+    plotData.append(figDec)
 
     # Saving Plot 4 - Reliability Image
-    reliability = get_aReliability(years, percSources, energy)
+    reliability = get_aReliability(years, percSources, energy, percEff)
     plt.plot(years, reliability)
     plt.xlabel("Years")
     plt.ylabel("Reliability (expected reduction in MWhr)")
     plt.title("Reliability Over Time")
     fig = BytesIO()
     plt.savefig(fig, format='png')
-    plotData.append(base64.b64encode(fig.getvalue()))
+    fig.seek(0)
+    buffer = b''.join(fig)
+    b2 = base64.b64encode(buffer)
+    figDec =b2.decode('utf-8')
+    plotData.append(figDec)
 
     # Saving Plot 5 - Construction Cost
     construcCost = get_aConstructionCost(years, percSources)
@@ -218,7 +234,11 @@ def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc):
     plt.title("Annual Construction Costs")
     fig = BytesIO()
     plt.savefig(fig, format='png')
-    plotData.append(base64.b64encode(fig.getvalue()))
+    fig.seek(0)
+    buffer = b''.join(fig)
+    b2 = base64.b64encode(buffer)
+    figDec =b2.decode('utf-8')
+    plotData.append(figDec)
 
     # Saving Plot 6 - Consumer Price
     consumCost = get_aConsumerCost(years, percSources)
@@ -228,7 +248,13 @@ def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc):
     plt.title("Annual Consumer Costs")
     fig = BytesIO()
     plt.savefig(fig, format='png')
-    plotData.append(base64.b64encode(fig.getvalue()))
+    fig.seek(0)
+    buffer = b''.join(fig)
+    b2 = base64.b64encode(buffer)
+    figDec =b2.decode('utf-8')
+    plotData.append(figDec)
+    
+    # return array with all the plot images
     return plotData
     
 #### Test of Module ####

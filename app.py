@@ -1,5 +1,10 @@
 from flask import Flask, render_template, request
-import helper
+from helper import getPlots
+import numpy as np
+import matplotlib.pyplot as plt
+from io import BytesIO
+import base64
+import math
 # the app we use to manage the routes and run the app
 app = Flask(__name__)
 
@@ -22,10 +27,31 @@ def calc():
     if request.method == 'GET':
         return render_template("calc.html")
     else:
-        return render_template("error.html", error = "you're too cool for this website B)")
-#        return render_template("data.html", data = "")
-    
+        # start and end year data
+        startYear = int(request.form.get("start"))
+        endYear = int(request.form.get("end"))
+        
+        # initial conditions data in format used by helper.py
+        initial = np.array([float(request.form.get("cinit")), float(request.form.get("nginit")), float(request.form.get("soinit")), float(request.form.get("winit")), float(request.form.get("ninit")), float(request.form.get("winginit"))])
+        
+        # throws an error if the percents for the initial value aren't close enough to 100%
+        if not math.isclose(sum(initial), 100.0, rel_tol=1e-3):
+            return render_template("error.html", error = " your initial percentages do not add up to 100%.")
+        
+        # first derivative data
+        firsderv = np.array([float(request.form.get("cd")), float(request.form.get("ngd")), float(request.form.get("sod")), float(request.form.get("wd")), float(request.form.get("nd")), float(request.form.get("wid"))])
+        
+        # second derivative data
+        secderv = np.array([float(request.form.get("cd2")), float(request.form.get("ngd2")), float(request.form.get("sod2")), float(request.form.get("wd2")), float(request.form.get("nd2")), float(request.form.get("wid2"))])
+        
+        # effectiveness %
+        effec = float(request.form.get("eff"))
+        
+        imgs = getPlots(startYear, endYear, initial, firsderv, secderv, effec)
+        
+        
+        return render_template("data.html", energy = imgs[0], emm = imgs[1], prod = imgs[2], rel = imgs[3], construct = imgs[4], consum = imgs[5])
     
 # runs our app using Flask
 if __name__ == "__main__":
-    app.run()
+    app.run(debug = True)

@@ -9,5 +9,17 @@
 {% block title %}Calculator{% endblock %}
 {% block content %}
 Your data has been entered! I'm not doing anything with it and it's lost to the sands of time, but at least form submission works!
-{{ data }}
+<p> Energy </p>
+<img src="data:image/png;base64, {{ energy }}" >
+<p> CO2 </p>
+<img src="data:image/png;base64, {{ emm }}" >
+<p> Production </p>
+<img src="data:image/png;base64, {{ prod }}" >
+<p> Reliability </p>
+<img src="data:image/png;base64, {{ rel }}" >
+<p> Construction Costs </p>
+<img src="data:image/png;base64, {{ construct }}" >
+<p> Consumer Price </p>
+<img src="data:image/png;base64, {{ consum }}" >
+
 {% endblock %}
