@@ -22,7 +22,8 @@ def calc():
     if request.method == 'GET':
         return render_template("calc.html")
     else:
-        return render_template("data.html", data = "")
+        return render_template("error.html", error = "you're too cool for this website B)")
+#        return render_template("data.html", data = "")
     
     
 # runs our app using Flask
