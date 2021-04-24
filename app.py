@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import helper.py
+import helper
 # the app we use to manage the routes and run the app
 app = Flask(__name__)
 
