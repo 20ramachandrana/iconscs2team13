@@ -30,9 +30,9 @@ def calc():
         # start and end year data
         startYear = int(request.form.get("start"))
         endYear = int(request.form.get("end"))
-        if (startYear >= endYear){
+        if (startYear >= endYear):
           return render_template("error.html", error = " you need to make the start year come before the end year.")  
-        }
+        
         
         # initial conditions data in format used by helper.py
         initial = np.array([float(request.form.get("cinit")), float(request.form.get("nginit")), float(request.form.get("soinit")), float(request.form.get("winit")), float(request.form.get("ninit")), float(request.form.get("winginit"))])
