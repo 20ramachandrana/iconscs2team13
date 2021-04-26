@@ -8,8 +8,9 @@
 {% endblock%}
 {% block script %}
 <script>
-function energy(){
-    let energy = document.getElementsByClassName("energy");
+function makeVisible(name){
+    document.getElementById("menu").style.visibility = "hidden";
+    let energy = document.getElementsByClassName(name);
     for (let i = 0; i < energy.length; i++){
         energy[i].style.visibility = "visible";
     }
@@ -18,23 +19,30 @@ function energy(){
 {% endblock %}
 {% block title %}Calculator{% endblock %}
 {% block content %}
-<button onclick = "energy()"></button>
-<div id = "menu" style = "visibility:hidden;">
 Your data has been entered! Here are the graphs we made with it!
+<br>
+<button onclick = "makeVisible('energy')">Energy Production</button>
+<button onclick = "makeVisible('emm')">Carbon Emissions</button>
+<button onclick = "makeVisible('prod')">Energy Generation Distributions</button>
+<button onclick = "makeVisible('rel')">Reliability</button>
+<button onclick = "makeVisible('construct')">Construction Costs</button>
+<button onclick = "makeVisible('consum')">Consumer Price</button>
+<br>
+<div id = "menu" style = "visibility:hidden;">
 <p class="energy"> Energy </p>
 <img src="data:image/png;base64, {{ energy }}"  class="energy" alt = "Annual energy production for the grid based on the data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is energy production for that year in megawatts per hour." >
-<p> CO2 </p>
-<img src="data:image/png;base64, {{ emm }}" alt = "Annual carbon emissions for the grid based on the data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is the carbon dioxide emissions for that year in millions of metric tons." >
+<p class = "emm"> CO2 </p>
+<img src="data:image/png;base64, {{ emm }}" class = "emm" alt = "Annual carbon emissions for the grid based on the data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is the carbon dioxide emissions for that year in millions of metric tons." >
 <br>
-<p>Net carbon emissions: {{ net }} million metric tons</p>
-<p style="visibility:hidden;"> Production </p>
-<img src="data:image/png;base64, {{ prod }}"  alt = "Annual energy generation distributions for each source based on the data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is percent of the source by energy generation. There are 6 curves for coal, natural gas, solar, wind, nuclear and winterized natural gas."  >
-<p> Reliability </p>
-<img src="data:image/png;base64, {{ rel }}" alt = "Reliability over time for the data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is reliability for that year, the expected reduction in megawatt hours for the energy grid." >
-<p> Construction Costs </p>
-<img src="data:image/png;base64, {{ construct }}" alt = "Annual construction costs for the grid based on data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is the cost in USD." >
-<p> Consumer Price </p>
-<img src="data:image/png;base64, {{ consum }}" alt = "Annual consumer price for the grid based on data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is the consumer price in cents per kilowatt hour.">
+<p class = "emm">Net carbon emissions: {{ net }} million metric tons</p>
+<p class = "prod"> Production </p>
+<img src="data:image/png;base64, {{ prod }}" class = "prod" alt = "Annual energy generation distributions for each source based on the data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is percent of the source by energy generation. There are 6 curves for coal, natural gas, solar, wind, nuclear and winterized natural gas."  >
+<p  class = "rel"> Reliability </p>
+<img src="data:image/png;base64, {{ rel }}"  class = "rel" alt = "Reliability over time for the data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is reliability for that year, the expected reduction in megawatt hours for the energy grid." >
+<p class = "construct"> Construction Costs </p>
+<img src="data:image/png;base64, {{ construct }}"  class = "construct" alt = "Annual construction costs for the grid based on data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is the cost in USD." >
+<p class = "consum"> Consumer Price </p>
+<img src="data:image/png;base64, {{ consum }}" class = "consum" alt = "Annual consumer price for the grid based on data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is the consumer price in cents per kilowatt hour.">
 <br>
 </div>
 <a href="/calculator" class="button">Back to the Calculator!</a>
