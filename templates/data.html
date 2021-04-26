@@ -9,7 +9,10 @@
 {% block script %}
 <script>
 function makeVisible(name){
-    document.getElementById("menu").hidden = true;
+    let menu = document.getElementById("menu");
+    for (let i = 0; i < menu.length; i++){
+        menu[i].hidden = false;
+    }
     let arr = document.getElementsByClassName(name);
     for (let i = 0; i < arr.length; i++){
         arr[i].hidden = false;
