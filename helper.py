@@ -267,7 +267,7 @@ def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc, percEff):
     figDec =b2.decode('utf-8')
     plotData.append(figDec)
     plt.clf()
-    
+    plotData.append(get_totalEmissions(years, emissions))
     # return array with all the plot images
     return plotData
     
