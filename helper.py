@@ -225,7 +225,7 @@ def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc, percEff):
         plt.xticks(list(range(startYear, endYear+1, 1)))
     plt.xlabel("Years")
     plt.ylabel("Reliability (expected reduction in MWh)")
-    plt.yticks(fontsize=8)
+    plt.yticks(fontsize=6)
     plt.title("Reliability Over Time")
     fig = BytesIO()
     plt.savefig(fig, format='png')
