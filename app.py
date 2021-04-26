@@ -53,7 +53,7 @@ def calc():
         imgs = getPlots(startYear, endYear, initial, firsderv, secderv, effec)
         
         
-        return render_template("data.html", energy = imgs[0], emm = imgs[1], prod = imgs[2], rel = imgs[3], construct = imgs[4], consum = imgs[5])
+        return render_template("data.html", energy = imgs[0], emm = imgs[1], prod = imgs[2], rel = imgs[3], construct = imgs[4], consum = imgs[5], net=imgs[6])
     
 # runs our app using Flask
 if __name__ == "__main__":
