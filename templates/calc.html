@@ -6,9 +6,48 @@
   <li><a href="/calculator" class = "active">Calculator</a></li>   
 </ul>
 {% endblock%}
+{% block script %}
+<script>
+// Sets up the user input for scenario 1 (linear renewable growth) according to our methodology and submits for the user so they can see the graphs that are associated with our first scenario
+function scenario1(){
+     // get the form so we can autosubmit
+    let form = document.getElementById("form");
+    document.getElementById("wd").value = 1.5;
+    document.getElementById("sod").value = 1.5;
+    form.submit();
+}
+// Sets up the user input for scenario 2 (quadratic renewable growth) according to our methodology and submits for the user so they can see the graphs that are associated with our second scenario
+function scenario2(){
+    // get the form so we can autosubmit
+    let form = document.getElementById("form");
+    // change the first derivative value of winterized natural gas to be an increase of 1.5% per year
+    document.getElementById("wd").value = 0;
+    document.getElementById("sod").value = 0;
+    document.getElementById("wid").value = 1.5;
+    // change the second derivative value for winterized natural gas to be an increase of 0.5% per year^2
+    document.getElementById("wid2").value = 0.5;
+    form.submit();
+}
+// Sets up the user input for scenario 2 (quadratic renewable growth) according to our methodology and submits for the user so they can see the graphs that are associated with our second scenario
+function scenario3(){
+    // get the form so we can autosubmit
+    let form = document.getElementById("form");
+    // change the first derivative values to be an increase of 1.5% per year
+    document.getElementById("wd").value = 1.5;
+    document.getElementById("sod").value = 1.5;
+    // change the second derivative values to be an increase of 0.5% per year^2
+    document.getElementById("wd2").value = 0.5;
+    document.getElementById("sod2").value = 0.5;
+    form.submit();
+}
+</script>
+{% endblock%}
 {% block title %}Calculator{% endblock %}
 {% block content %}
-<form action="/calculator" method="post">
+<button onclick="scenario1()">Scenario 1: Current Trends</button>
+<button onclick="scenario2()">Scenario 2: Quadratic Growth of Renewable Energy</button>
+<button onclick="scenario3()">Scenario 3: Increased Prevalence of Winterized Natural Gas</button>
+<form action="/calculator" method="post" id = "form">
   <label for="quantity" style="color:#41afdf">Start Year (Minimum of 2021):</label>
   <input type="number" id="start" name="start" min="2021" value = "2021" required>
   <br>
