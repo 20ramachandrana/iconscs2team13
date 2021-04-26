@@ -12,6 +12,7 @@
 function scenario1(){
      // get the form so we can autosubmit
     let form = document.getElementById("form");
+    document.getElementById("end").value = 2030;
     document.getElementById("wd").value = 1.5;
     document.getElementById("sod").value = 1.5;
     form.submit();
@@ -20,6 +21,7 @@ function scenario1(){
 function scenario2(){
     // get the form so we can autosubmit
     let form = document.getElementById("form");
+   document.getElementById("end").value = 2030;
     // change the first derivative values to be an increase of 1.5% per year
     document.getElementById("wd").value = 1.5;
     document.getElementById("sod").value = 1.5;
@@ -32,6 +34,7 @@ function scenario2(){
 function scenario3(){
     // get the form so we can autosubmit
     let form = document.getElementById("form");
+   document.getElementById("end").value = 2030;
     // change the first derivative value of winterized natural gas to be an increase of 1.5% per year and keep wind/solar production constant.
     document.getElementById("wd").value = 0;
     document.getElementById("sod").value = 0;
