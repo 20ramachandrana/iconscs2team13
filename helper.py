@@ -150,7 +150,12 @@ def get_aEmissions(aYear, aPercentSources, aEnergy, source_emissions=source_emis
         aEmissions[i] = aEnergy[i]*np.dot(source_emissions, P)
     
     return aEmissions
-
+def get_totalEmissions(aYear, aEmissions):
+    '''returns the net emissions from the arrays for annual emissions and the time in years'''
+    delta_t = aYear[-1] - aYear[0]
+    n = len(aYear)
+    net_em = np.sum(aEmissions)*(delta_t/n)
+    return net_em
 def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc, percEff):
     '''
            Returns an array of 6 plots as png images to use in the website.
