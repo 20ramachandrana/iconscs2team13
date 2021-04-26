@@ -227,7 +227,7 @@ def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc, percEff):
     plt.ylabel("Reliability (expected reduction in MWh)")
     plt.title("Reliability Over Time")
     fig = BytesIO()
-    plt.savefig(fig, format='png')
+    plt.savefig(fig, format='png', dpi=256)
     fig.seek(0)
     buffer = b''.join(fig)
     b2 = base64.b64encode(buffer)
