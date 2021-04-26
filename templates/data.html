@@ -9,7 +9,10 @@
 {% block script %}
 <script>
 function energy(){
-    document.getElementsByClassName("energy").style.visibility = "visible";
+    document.getElementsByClassName("energy").forEach(function(a){
+        a.style.visibility = "visible";
+        
+    });
 }
 </script>
 {% endblock %}
