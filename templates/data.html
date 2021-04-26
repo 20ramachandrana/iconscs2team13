@@ -9,10 +9,10 @@
 {% block script %}
 <script>
 function makeVisible(name){
-    document.getElementById("menu").style.visibility = "hidden";
-    let energy = document.getElementsByClassName(name);
-    for (let i = 0; i < energy.length; i++){
-        energy[i].style.visibility = "visible";
+    document.getElementById("menu").hidden = true;
+    let arr = document.getElementsByClassName(name);
+    for (let i = 0; i < arr.length; i++){
+        arr[i].hidden = false;
     }
 }
 </script>
@@ -28,7 +28,7 @@ Your data has been entered! Here are the graphs we made with it!
 <button onclick = "makeVisible('construct')">Construction Costs</button>
 <button onclick = "makeVisible('consum')">Consumer Price</button>
 <br>
-<div id = "menu" style = "visibility:hidden;">
+<div id = "menu" hidden>
 <p class="energy"> Energy </p>
 <img src="data:image/png;base64, {{ energy }}"  class="energy" alt = "Annual energy production for the grid based on the data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is energy production for that year in megawatts per hour." >
 <p class = "emm"> CO2 </p>
