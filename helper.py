@@ -216,7 +216,7 @@ def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc, percEff):
     plt.title("Percent Distribution of Sources Over Time")
     plt.legend(["Coal", "NG", "Solar", "Wind", "Nuclear", "Winterized NG"], loc='upper center', bbox_to_anchor=(0.5, -0.05))
     fig = BytesIO()
-    plt.savefig(fig, format='png')
+    plt.savefig(fig, format='png', dpi = 200)
     fig.seek(0)
     buffer = b''.join(fig)
     b2 = base64.b64encode(buffer)
