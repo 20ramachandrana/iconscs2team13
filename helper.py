@@ -214,7 +214,7 @@ def getPlots(startYear, endYear, initialSrc, firsDerSrc, secDerSrc, percEff):
     plt.xlabel("Years")
     plt.ylabel("% Source By Energy Production")
     plt.title("Percent Distribution of Sources Over Time")
-    plt.legend(["Coal", "NG", "Solar", "Wind", "Nuclear", "Winterized NG"], loc="upper left", bbox_to_anchor=(0.5, -0.1))
+    plt.legend(["Coal", "NG", "Solar", "Wind", "Nuclear", "Winterized NG"], loc="upper right")
     fig = BytesIO()
     plt.savefig(fig, format='png')
     fig.seek(0)
