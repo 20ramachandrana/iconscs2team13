@@ -50,23 +50,4 @@ Your data has been entered! Here are the graphs we made with it!
 </div>
 <br>
 <a href="/calculator" class="button">Back to the Calculator!</a>
-<noscript>
-Your data has been entered! Here are the graphs we made with it!
-<p> Energy </p>
-<img src="data:image/png;base64, {{ energy }}"  class="energy" alt = "Annual energy production for the grid based on the data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is energy production for that year in megawatts per hour." >
-<p> CO2 </p>
-<img src="data:image/png;base64, {{ emm }}" alt = "Annual carbon emissions for the grid based on the data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is the carbon dioxide emissions for that year in millions of metric tons." >
-<br>
-<p>Net carbon emissions: {{ net }} million metric tons</p>
-<p style="visibility:hidden;"> Production </p>
-<img src="data:image/png;base64, {{ prod }}"  alt = "Annual energy generation distributions for each source based on the data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is percent of the source by energy generation. There are 6 curves for coal, natural gas, solar, wind, nuclear and winterized natural gas."  >
-<p> Reliability </p>
-<img src="data:image/png;base64, {{ rel }}" alt = "Reliability over time for the data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is reliability for that year, the expected reduction in megawatt hours for the energy grid." >
-<p> Construction Costs </p>
-<img src="data:image/png;base64, {{ construct }}" alt = "Annual construction costs for the grid based on data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is the cost in USD." >
-<p> Consumer Price </p>
-<img src="data:image/png;base64, {{ consum }}" alt = "Annual consumer price for the grid based on data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is the consumer price in cents per kilowatt hour.">
-<br>
-<a href="/calculator" class="button">Back to the Calculator!</a>
-</noscript>
 {% endblock %}
