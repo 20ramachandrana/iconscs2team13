@@ -35,12 +35,12 @@ Your data has been entered! Here are the graphs we made with it!
 <button onclick = "makeVisible('consum')">Consumer Price</button>
 <br>
 <div id = "menu">
-<p class="energy"> Energy </p>
+<p class="energy"> Energy Production</p>
 <img src="data:image/png;base64, {{ energy }}"  class="energy" alt = "Annual energy production for the grid based on the data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is energy production for that year in megawatts per hour." >
 <p class = "emm" hidden> Carbon Emissions </p>
 <img hidden src="data:image/png;base64, {{ emm }}" class = "emm" alt = "Annual carbon emissions for the grid based on the data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is the carbon dioxide emissions for that year in millions of metric tons." >
 <p class = "emm" hidden>Net carbon emissions: {{ net }} million metric tons</p>
-<p hidden class = "prod"> Production </p>
+<p hidden class = "prod"> Generation Percentage Distributions Over Time </p>
 <img hidden src="data:image/png;base64, {{ prod }}" class = "prod" alt = "Annual energy generation distributions for each source based on the data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is percent of the source by energy generation. There are 6 curves for coal, natural gas, solar, wind, nuclear and winterized natural gas."  >
 <p hidden class = "rel"> Reliability </p>
 <img hidden src="data:image/png;base64, {{ rel }}"  class = "rel" alt = "Reliability over time for the data you inputted into the calculator. The x-axis is the years upto and including the start year and end year you selected, and the y-axis is reliability for that year, the expected reduction in megawatt hours for the energy grid." >
