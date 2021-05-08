@@ -7,4 +7,39 @@
 </ul>
 {% endblock%}
 {% block title %}{{ message }}{% endblock %}
-{%block content%} Welcome to the website for Team 13’s case study 2 project in iCons 1! In February of 2021 during a major winter storm, Texas suffered a massive electrical grid failure, leaving millions of Americans without power for multiple days. The occurrence of blackouts such as those in Texas this year and Ohio in 2003 indicate that there is a need for continuing improvement in the efficiency and reliability of electrical grids. The accelerating effects of climate change are causing severe weather patterns to occur more frequently, and this trend puts electrical grids at further risk of failure. Expanding the use of renewable energy as a fuel source will help to gradually mitigate the effects of climate change. The purpose of our calculator is to take user inputs about the initial percent of electricity generated from each energy source in Texas and return multiple graphs. The graphs show annual energy production, reliability, carbon emissions, percent distribution of sources over time, and also annual construction and consumer costs. The goal of our calculator is to determine the optimal distribution of energy sources for the Texas electrical grid to reduce the severity of future grid failures, carbon emissions, and financial cost. We hope you can learn something from our calculator, have fun! {% endblock %}
+{%block content%} Welcome to the website for Team 13’s case study 2 project in iCons 1! In February of 2021 during a major winter storm, Texas suffered a massive electrical grid failure, leaving millions of Americans without power for multiple days. The occurrence of blackouts such as those in Texas this year and Ohio in 2003 indicate that there is a need for continuing improvement in the efficiency and reliability of electrical grids. The accelerating effects of climate change are causing severe weather patterns to occur more frequently, and this trend puts electrical grids at further risk of failure. Expanding the use of renewable energy as a fuel source will help to gradually mitigate the effects of climate change. The purpose of our calculator is to take user inputs about the initial percent of electricity generated from each energy source in Texas and return multiple graphs. The graphs show annual energy production, reliability, carbon emissions, percent distribution of sources over time, and also annual construction and consumer costs. The goal of our calculator is to determine the optimal distribution of energy sources for the Texas electrical grid to reduce the severity of future grid failures, carbon emissions, and financial cost. We hope you can learn something from our calculator, have fun! 
+Our Assumptions:
+<br>
+Infrastructural/Construction-based:
+<br>
+Infrastructure costs will be specifically from construction. Assume construction costs for each source per kW of power remains the same as the EIA data based on mean values for the US (from 2008 for coal, 2016 for all others).
+<br>
+Assume new infrastructure is constructed based on projected increase in production for Texas each year, with sources changing power output based on the percent distribution of the sources that year.
+
+
+<br>
+Winterization:
+<br>
+-Assume winterized NG and regular NG have the same emissions per MWh and generative costs.
+<br>
+-We do not take into account the possibility of winterization increasing reliability (outside of that for natural gas) or technology that may improve reliability after 2021
+<br>
+-Assume that all of the NG infrastructure for El Paso Electric is winterized, and none is winterized in the ERCOT grid starting in 2021 where the current rate of increase is zero (unless the user specifies otherwise).
+<br>
+-Winterized natural gas (WNG) will be modeled separately from current conventional natural gas (NG).
+<br>
+Production/Grid-Based:
+<br>
+Future grid failures will have similar grid-level effects to the one in February 2021.
+<br>
+NG will be taken as the difference between 100% and all other sources (used as a “slack”)
+<br>
+Annual energy production and use in Texas is assumed to increase linearly.
+<br>
+% distribution of sources is constant from 2019 to 2021.
+<br>
+Assume zero carbon emissions for nuclear, wind, & solar, despite small (<1/100 order of magnitude compared to fossil fuel) emissions with these sources.
+<br>
+Assume that the production distribution, mean maintenance costs and consumer price are the same year-round despite higher reliance on NG in winter
+<br>
+{% endblock %}
