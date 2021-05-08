@@ -18,7 +18,10 @@ def home():
 @app.route('/userguide')
 def userguide():
     return render_template("userguide.html")
-
+# the assumptions
+@app.route('/assumptions')
+def userguide():
+    return render_template("assumptions.html")
 # the interface of the first calculator – 
 # defines the "get" request behavior to be loading the page from a template and the "post" request behavior to load a data page
 # will have a way to talk to helper.py to get the plotting functions and display the plots on the page
